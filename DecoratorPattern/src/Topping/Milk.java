@@ -1,0 +1,23 @@
+package Topping;
+
+import BaseDrink.BaseDrink;
+
+public class Milk extends Topping {
+    private String name = "Milk";
+    private int price = 10;
+    private BaseDrink base;
+
+    public Milk(BaseDrink base) {
+        this.base = base;
+    }
+
+    @Override
+    public int getPrice() {
+        return base.getPrice() + this.price;
+    }
+
+    @Override
+    public String toString() {
+        return base + ", " + name;
+    }
+}
