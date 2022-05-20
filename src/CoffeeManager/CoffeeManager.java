@@ -1,6 +1,6 @@
 package CoffeeManager;
 
-import BaseDrink.*;
+import Beverage.*;
 import Topping.*;
 
 import java.util.ArrayList;
@@ -10,18 +10,18 @@ import static java.lang.System.out;
 
 public class CoffeeManager {
     private final Scanner sc;
-    private ArrayList<BaseDrink> list;
+    private ArrayList<BaseBeverage> list;
 
     public CoffeeManager() {
         sc = new Scanner(System.in);
         list = new ArrayList<>();
     }
 
-    private void printMenuItem(BaseDrink obj, int pos) {
+    private void printMenuItem(BaseBeverage obj, int pos) {
         System.out.println(pos + " - " + obj + "\t\t" + obj.getPrice() + " 000");
     }
     private void showMenu() {
-        BaseDrink obj;
+        BaseBeverage obj;
         System.out.println("Drinks");
         obj = new Espresso();
         printMenuItem(obj, 1);
@@ -49,8 +49,8 @@ public class CoffeeManager {
         printMenuItem(obj, 6);
     }
 
-    BaseDrink createDrink() {
-        BaseDrink obj;
+    BaseBeverage createDrink() {
+        BaseBeverage obj;
         int op;
 
 
@@ -96,7 +96,7 @@ public class CoffeeManager {
 
             if (op == 1) showMenu();
             else if (op == 2) {
-                BaseDrink obj = createDrink();
+                BaseBeverage obj = createDrink();
                 list.add(obj);
                 break;
             }
@@ -107,7 +107,7 @@ public class CoffeeManager {
     public void printBill() {
         System.out.println("=================================");
         int ans = 0;
-        for (BaseDrink obj : list) {
+        for (BaseBeverage obj : list) {
             int price = obj.getPrice();
             out.println("Item: " + obj + "\t\t\tprice: " + price);
             ans += price;

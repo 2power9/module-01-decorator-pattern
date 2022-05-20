@@ -1,6 +1,6 @@
-package BaseDrink;
+package Beverage;
 
-public class Espresso extends BaseDrink {
+public class Espresso extends BaseBeverage {
     public Espresso() {
         name = "Espresso";
         price = 30;

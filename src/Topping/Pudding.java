@@ -1,13 +1,13 @@
 package Topping;
 
-import BaseDrink.BaseDrink;
+import Beverage.BaseBeverage;
 
 public class Pudding extends Topping {
     private String name = "Pudding";
     private int price = 20;
-    private BaseDrink base;
+    private BaseBeverage base;
 
-    public Pudding(BaseDrink base) {
+    public Pudding(BaseBeverage base) {
         this.base = base;
     }
 

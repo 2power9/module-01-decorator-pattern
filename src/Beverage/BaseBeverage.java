@@ -1,6 +1,6 @@
-package BaseDrink;
+package Beverage;
 
-public abstract class BaseDrink {
+public abstract class BaseBeverage {
     protected String name;
     protected int price;
 
