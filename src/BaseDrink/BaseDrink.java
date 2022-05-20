@@ -14,6 +14,6 @@ public abstract class BaseDrink {
 
     @Override
     public String toString() {
-        return "Drink name: " + name;
+        return name;
     }
 }

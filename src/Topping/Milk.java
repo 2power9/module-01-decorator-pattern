@@ -13,11 +13,11 @@ public class Milk extends Topping {
 
     @Override
     public int getPrice() {
-        return base.getPrice() + this.price;
+        return (base != null ? base.getPrice() : 0) + this.price;
     }
 
     @Override
     public String toString() {
-        return base + ", " + name;
+        return (base != null ? base + ", " : "") + name;
     }
 }
