@@ -9,32 +9,44 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public class CoffeeManager {
-    private Scanner sc;
+    private final Scanner sc;
     private ArrayList<BaseDrink> list;
 
     public CoffeeManager() {
         sc = new Scanner(System.in);
-        list = new ArrayList<BaseDrink>();
+        list = new ArrayList<>();
     }
 
+    private void printMenuItem(BaseDrink obj, int pos) {
+        System.out.println(pos + " - " + obj + "\t\t" + obj.getPrice() + " 000");
+    }
     private void showMenu() {
-        System.out.println("""
-                        Menu drinks:
-                        1 - Espresso 
-                        2 - Cappuccino
-                        3 - Latte
-                        4 - Green Tea
-                        5 - Milk Tea
-                        
-                        Menu toppings:
-                        1 - Bubble
-                        2 - Coffee
-                        3 - Milk
-                        4 - Pudding
-                        5 - Fruit
-                        6 - Sugar
-                """
-        );
+        BaseDrink obj;
+        System.out.println("Drinks");
+        obj = new Espresso();
+        printMenuItem(obj, 1);
+        obj = new Cappuccino();
+        printMenuItem(obj, 2);
+        obj = new Latte();
+        printMenuItem(obj, 3);
+        obj = new GreenTea();
+        printMenuItem(obj, 4);
+        obj = new MilkTea();
+        printMenuItem(obj, 5);
+
+        System.out.println("\nToppings:");
+        obj = new Bubble(null);
+        printMenuItem(obj, 1);
+        obj = new Coffee(null);
+        printMenuItem(obj, 2);
+        obj = new Milk(null);
+        printMenuItem(obj, 3);
+        obj = new Pudding (null);
+        printMenuItem(obj, 4);
+        obj = new Fruit(null);
+        printMenuItem(obj, 5);
+        obj = new Sugar(null);
+        printMenuItem(obj, 6);
     }
 
     BaseDrink createDrink() {
@@ -74,15 +86,13 @@ public class CoffeeManager {
         return obj;
     }
 
-    public void orderDrink() {
+    public void orderDrink(int pos) {
+        System.out.println("===== #"+ pos +" =====");
         int op;
         while (true) {
             System.out.print("Choose option (0 - quit | 1 - show menu | 2 - order):");
             op = sc.nextInt();
-            if (op == 0) {
-                out.print("Goodbye!");
-                return;
-            }
+            if (op == 0) return;
 
             if (op == 1) showMenu();
             else if (op == 2) {
@@ -95,12 +105,14 @@ public class CoffeeManager {
     }
 
     public void printBill() {
+        System.out.println("=================================");
         int ans = 0;
         for (BaseDrink obj : list) {
             int price = obj.getPrice();
-            out.println(obj + "\t\t\tprice: " + price);
+            out.println("Item: " + obj + "\t\t\tprice: " + price);
             ans += price;
         }
         System.out.println("Total: " + ans);
+        System.out.println("=================================");
     }
 }
