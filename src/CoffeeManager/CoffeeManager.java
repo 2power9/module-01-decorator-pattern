@@ -2,6 +2,7 @@ package CoffeeManager;
 
 import Beverage.*;
 import Topping.*;
+import Factory.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,14 +26,10 @@ public class CoffeeManager {
         System.out.println("Drinks");
         obj = new Espresso();
         printMenuItem(obj, 1);
-        obj = new Cappuccino();
-        printMenuItem(obj, 2);
-        obj = new Latte();
-        printMenuItem(obj, 3);
         obj = new GreenTea();
-        printMenuItem(obj, 4);
+        printMenuItem(obj, 2);
         obj = new MilkTea();
-        printMenuItem(obj, 5);
+        printMenuItem(obj, 3);
 
         System.out.println("\nToppings:");
         obj = new Bubble(null);
@@ -41,28 +38,20 @@ public class CoffeeManager {
         printMenuItem(obj, 2);
         obj = new Milk(null);
         printMenuItem(obj, 3);
-        obj = new Pudding (null);
-        printMenuItem(obj, 4);
         obj = new Fruit(null);
-        printMenuItem(obj, 5);
-        obj = new Sugar(null);
-        printMenuItem(obj, 6);
+        printMenuItem(obj, 4);
     }
 
-    BaseBeverage createDrink() {
-        BaseBeverage obj;
+    BaseBeverage createBeverage() {
         int op;
-
-
-        out.print("Choose option for drink [1-5]: ");
-
-        op = sc.nextInt();
+        BeverageFactory controller;
         while (true) {
-            if (op == 1) obj = new Espresso();
-            else if (op == 2) obj = new Cappuccino();
-            else if (op == 3) obj = new Latte();
-            else if (op == 4) obj = new GreenTea();
-            else if (op == 5) obj = new MilkTea();
+            out.print("Choose option for drink [1-3]: ");
+            op = sc.nextInt();
+
+            if (op == 1) controller = new EspressoFactory();
+            else if (op == 2) controller = new GreenTeaFactory();
+            else if (op == 3) controller = new MilkTeaFactory();
             else {
                 out.println("Sorry, we don't have this option.");
                 continue;
@@ -70,20 +59,7 @@ public class CoffeeManager {
             break;
         }
 
-        while (true) {
-            out.print("Do you wanna pick topping? (0 - no | [1-6] topping): ");
-            op = sc.nextInt();
-            if (op == 0) break;
-
-            if (op == 1) obj = new Bubble(obj);
-            else if (op == 2) obj = new Coffee(obj);
-            else if (op == 3) obj = new Milk(obj);
-            else if (op == 4) obj = new Pudding(obj);
-            else if (op == 5) obj = new Fruit(obj);
-            else if (op == 6) obj = new Sugar(obj);
-            else out.println("Sorry, we don't have this option.");
-        }
-        return obj;
+        return controller.createBeverage();
     }
 
     public void orderDrink(int pos) {
@@ -93,14 +69,16 @@ public class CoffeeManager {
             System.out.print("Choose option (0 - quit | 1 - show menu | 2 - order):");
             op = sc.nextInt();
             if (op == 0) return;
-
             if (op == 1) showMenu();
-            else if (op == 2) {
-                BaseBeverage obj = createDrink();
-                list.add(obj);
-                break;
-            }
+            if (op == 2) break;
             else out.println("Sorry, we don't have this option.");
+        }
+
+        System.out.print("How many beverages do you wanna add?: ");
+        int n = sc .nextInt();
+        for (int i = 0; i < n; ++i) {
+            BaseBeverage obj = createBeverage();
+            list.add(obj);
         }
     }
 
