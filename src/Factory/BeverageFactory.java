@@ -23,10 +23,9 @@ public abstract class BeverageFactory {
         }
         return false;
     }
-    protected void getAmount(BaseBeverage obj, int i) {
+    protected void getAmount(BaseBeverage obj, int num) {
         while (true) {
             System.out.print("Choose amount of topping (limit: " + obj.getLimit() + ") : ");
-            int num = i;
             if (num > 0 && num <= obj.getLimit()) {
                 obj.setAmount(num);
                 break;
