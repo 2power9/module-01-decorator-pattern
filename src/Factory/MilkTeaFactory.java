@@ -7,7 +7,7 @@ import Topping.*;
 
 import java.util.Arrays;
 
-public class MilkTeaFactory extends CoffeeFactory {
+public class MilkTeaFactory extends BeverageFactory {
     public MilkTeaFactory() {
         numToppings = 3;
         pickedTopping = new boolean[numToppings];

@@ -9,7 +9,7 @@ import Topping.Sugar;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class EspressoFactory extends CoffeeFactory {
+public class EspressoFactory extends BeverageFactory {
 
     public EspressoFactory() {
         sc = new Scanner(System.in);

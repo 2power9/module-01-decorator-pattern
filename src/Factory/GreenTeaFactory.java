@@ -8,7 +8,7 @@ import Topping.Fruit;
 
 import java.util.Arrays;
 
-public class GreenTeaFactory extends  CoffeeFactory {
+public class GreenTeaFactory extends BeverageFactory {
     public GreenTeaFactory() {
         numToppings = 2;
         pickedTopping = new boolean[numToppings];

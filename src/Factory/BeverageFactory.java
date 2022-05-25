@@ -2,14 +2,13 @@ package Factory;
 
 import Beverage.*;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public abstract class CoffeeFactory {
+public abstract class BeverageFactory {
     protected Scanner sc;
     protected int numToppings;
     protected boolean[] pickedTopping;
-    CoffeeFactory() {
+    BeverageFactory() {
         sc = new Scanner(System.in);
     }
 
