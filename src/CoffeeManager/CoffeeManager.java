@@ -46,7 +46,7 @@ public class CoffeeManager {
         int op;
         BeverageFactory controller;
         while (true) {
-            out.print("Choose option for drink [1-3]: ");
+            out.print("Choose option for beverage [1-3]: ");
             op = sc.nextInt();
 
             if (op == 1) controller = new EspressoFactory();
@@ -62,8 +62,7 @@ public class CoffeeManager {
         return controller.createBeverage();
     }
 
-    public void orderDrink(int pos) {
-        System.out.println("===== #"+ pos +" =====");
+    public void orderBeverages() {
         int op;
         while (true) {
             System.out.print("Choose option (0 - quit | 1 - show menu | 2 - order):");
@@ -77,6 +76,7 @@ public class CoffeeManager {
         System.out.print("How many beverages do you wanna add?: ");
         int n = sc .nextInt();
         for (int i = 0; i < n; ++i) {
+            System.out.println("===============Beverage #" + i + "==============");
             BaseBeverage obj = createBeverage();
             list.add(obj);
         }
@@ -87,10 +87,10 @@ public class CoffeeManager {
         int ans = 0;
         for (BaseBeverage obj : list) {
             int price = obj.getPrice();
-            out.println("Item: " + obj + "\t\t\tprice: " + price);
+            out.println("Item: " + obj + "\t\t\tprice: " + price + " 000");
             ans += price;
         }
-        System.out.println("Total: " + ans);
+        System.out.println("Total: " + ans + " 000");
         System.out.println("=================================");
     }
 }
