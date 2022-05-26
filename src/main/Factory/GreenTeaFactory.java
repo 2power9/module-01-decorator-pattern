@@ -1,10 +1,10 @@
-package Factory;
+package main.Factory;
 
-import Beverage.BaseBeverage;
-import Beverage.GreenTea;
+import main.Beverage.BaseBeverage;
+import main.Beverage.GreenTea;
 
-import Topping.Sugar;
-import Topping.Fruit;
+import main.Topping.Sugar;
+import main.Topping.Fruit;
 
 import java.util.Arrays;
 

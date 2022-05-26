@@ -1,10 +1,10 @@
-package Factory;
+package main.Factory;
 
-import Beverage.BaseBeverage;
-import Beverage.Espresso;
+import main.Beverage.BaseBeverage;
+import main.Beverage.Espresso;
 
-import Topping.Coffee;
-import Topping.Sugar;
+import main.Topping.Coffee;
+import main.Topping.Sugar;
 
 import java.util.Arrays;
 import java.util.Scanner;

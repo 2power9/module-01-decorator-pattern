@@ -1,4 +1,6 @@
-import CoffeeManager.CoffeeManager;
+package main;
+
+import main.CoffeeManager.CoffeeManager;
 public class Main {
     public static void main(String[] args) {
         CoffeeManager manager = new CoffeeManager();

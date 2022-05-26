@@ -1,4 +1,4 @@
-package Beverage;
+package main.Beverage;
 
 public abstract class BaseBeverage {
     protected String name;

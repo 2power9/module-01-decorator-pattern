@@ -1,15 +1,15 @@
-package Topping;
+package main.Topping;
 
-import Beverage.BaseBeverage;
+import main.Beverage.BaseBeverage;
 
-public class Coffee extends Topping {
-    private String name = "Coffee";
-    private int price = 25;
+public class Fruit extends Topping {
+    private String name = "Fruit";
+    private int price = 20;
     private BaseBeverage base;
     private int limit = 2;
     private int amount = 1;
 
-    public Coffee(BaseBeverage base) {
+    public Fruit(BaseBeverage base) {
         this.base = base;
     }
     public int getAmount() {
@@ -18,7 +18,6 @@ public class Coffee extends Topping {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
     @Override
     public int getLimit() {
         return limit;

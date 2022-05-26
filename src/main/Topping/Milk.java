@@ -1,15 +1,14 @@
-package Topping;
+package main.Topping;
 
-import Beverage.BaseBeverage;
+import main.Beverage.BaseBeverage;
 
-public class Fruit extends Topping {
-    private String name = "Fruit";
-    private int price = 20;
+public class Milk extends Topping {
+    private String name = "Milk";
+    private int price = 10;
     private BaseBeverage base;
-    private int limit = 2;
+    private int limit = 5;
     private int amount = 1;
-
-    public Fruit(BaseBeverage base) {
+    public Milk(BaseBeverage base) {
         this.base = base;
     }
     public int getAmount() {

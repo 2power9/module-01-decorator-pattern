@@ -1,8 +1,8 @@
-package CoffeeManager;
+package main.CoffeeManager;
 
-import Beverage.*;
-import Topping.*;
-import Factory.*;
+import main.Beverage.*;
+import main.Topping.*;
+import main.Factory.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;

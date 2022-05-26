@@ -1,9 +1,9 @@
-package Factory;
+package main.Factory;
 
-import Beverage.BaseBeverage;
-import Beverage.MilkTea;
+import main.Beverage.BaseBeverage;
+import main.Beverage.MilkTea;
 
-import Topping.*;
+import main.Topping.*;
 
 import java.util.Arrays;
 

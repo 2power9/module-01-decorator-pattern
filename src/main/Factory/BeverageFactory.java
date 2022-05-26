@@ -1,6 +1,6 @@
-package Factory;
+package main.Factory;
 
-import Beverage.*;
+import main.Beverage.*;
 
 import java.util.Scanner;
 
