@@ -8,6 +8,9 @@ public class Bubble extends Topping {
     private BaseBeverage base;
     private int limit = 4;
     private int amount = 1;
+    public Bubble() {
+        base = null;
+    }
     public Bubble(BaseBeverage base) {
         this.base = base;
     }

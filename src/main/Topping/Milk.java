@@ -8,6 +8,9 @@ public class Milk extends Topping {
     private BaseBeverage base;
     private int limit = 5;
     private int amount = 1;
+    public Milk() {
+        base = null;
+    }
     public Milk(BaseBeverage base) {
         this.base = base;
     }

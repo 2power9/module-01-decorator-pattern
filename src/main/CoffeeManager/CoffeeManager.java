@@ -32,13 +32,13 @@ public class CoffeeManager {
         printMenuItem(obj, 3);
 
         System.out.println("\nToppings:");
-        obj = new Bubble(null);
+        obj = new Bubble();
         printMenuItem(obj, 1);
-        obj = new Coffee(null);
+        obj = new Coffee();
         printMenuItem(obj, 2);
-        obj = new Milk(null);
+        obj = new Milk();
         printMenuItem(obj, 3);
-        obj = new Fruit(null);
+        obj = new Fruit();
         printMenuItem(obj, 4);
     }
 

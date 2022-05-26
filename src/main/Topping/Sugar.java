@@ -8,6 +8,9 @@ public class Sugar extends Topping {
     private BaseBeverage base;
     private int limit = 4;
     private int amount = 1;
+    public Sugar() {
+        base = null;
+    }
     public Sugar(BaseBeverage base) {
         this.base = base;
     }

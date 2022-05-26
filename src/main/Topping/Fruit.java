@@ -8,7 +8,9 @@ public class Fruit extends Topping {
     private BaseBeverage base;
     private int limit = 2;
     private int amount = 1;
-
+    public Fruit() {
+        base = null;
+    }
     public Fruit(BaseBeverage base) {
         this.base = base;
     }
