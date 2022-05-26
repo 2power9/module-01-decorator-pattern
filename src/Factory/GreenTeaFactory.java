@@ -31,7 +31,7 @@ public class GreenTeaFactory extends BeverageFactory {
             if (op == 1) obj = new Fruit(obj);
             else if (op == 2) obj = new Sugar(obj);
 
-            getAmount(obj, sc.nextInt());
+            getAmount(obj);
         }
         return obj;
     }

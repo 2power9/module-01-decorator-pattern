@@ -42,7 +42,7 @@ public class EspressoFactory extends BeverageFactory {
             ++count;
 
             obj = (op == 1 ? new Coffee(obj) : new Sugar(obj));
-            getAmount(obj, sc.nextInt());
+            getAmount(obj);
         }
         return obj;
     }

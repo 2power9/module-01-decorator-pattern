@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class MilkTeaFactory extends BeverageFactory {
     public MilkTeaFactory() {
-        numToppings = 3;
+        numToppings = 4;
         pickedTopping = new boolean[numToppings];
         Arrays.fill(pickedTopping, false);
     }
@@ -32,7 +32,7 @@ public class MilkTeaFactory extends BeverageFactory {
             else if (op == 3) obj = new Fruit(obj);
             else if (op == 4) obj = new Sugar(obj);
 
-            getAmount(obj, sc.nextInt());
+            getAmount(obj);
         }
         return obj;
     }
