@@ -21,7 +21,7 @@ public class MilkTeaFactory extends BeverageFactory {
 
         while (count < limit) {
             System.out.print("Pick available toppings (0 - no | 1 - bubble | 2 - milk | 3 - fruit | 4 - sugar): ");
-            op = sc.nextInt();
+            op = Integer.parseInt(in.input());
             if (op == 0) break;
             if (processOutOfRangeOption(op)) continue;
 

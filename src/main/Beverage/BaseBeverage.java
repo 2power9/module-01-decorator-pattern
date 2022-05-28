@@ -9,7 +9,7 @@ public abstract class BaseBeverage {
         return price;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 

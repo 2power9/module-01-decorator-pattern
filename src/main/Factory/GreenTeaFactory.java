@@ -22,7 +22,7 @@ public class GreenTeaFactory extends BeverageFactory {
 
         while (count < limit) {
             System.out.print("Pick available toppings (0 - no | 1 - fruit | 2 - sugar): ");
-            op = sc.nextInt();
+            op = Integer.parseInt(in.input());
             if (op == 0) break;
             if (processOutOfRangeOption(op)) continue;
             pickedTopping[op - 1] = true;

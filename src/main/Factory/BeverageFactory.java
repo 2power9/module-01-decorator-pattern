@@ -1,15 +1,16 @@
 package main.Factory;
 
 import main.Beverage.*;
+import main.Helper.InputHelper;
 
 import java.util.Scanner;
 
 public abstract class BeverageFactory {
-    protected Scanner sc;
+    protected InputHelper in;
     protected int numToppings;
     protected boolean[] pickedTopping;
     BeverageFactory() {
-        sc = new Scanner(System.in);
+        in = new InputHelper(System.in);
     }
 
     protected boolean processOutOfRangeOption(int op) {
@@ -26,7 +27,7 @@ public abstract class BeverageFactory {
     protected void getAmount(BaseBeverage obj) {
         while (true) {
             System.out.print("Choose amount of topping (limit: " + obj.getLimit() + ") : ");
-            int num = sc.nextInt();
+            int num = Integer.parseInt(in.input());
             if (num > 0 && num <= obj.getLimit()) {
                 obj.setAmount(num);
                 break;
