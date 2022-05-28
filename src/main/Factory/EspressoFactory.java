@@ -7,7 +7,6 @@ import main.Topping.Coffee;
 import main.Topping.Sugar;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class EspressoFactory extends BeverageFactory {
 
