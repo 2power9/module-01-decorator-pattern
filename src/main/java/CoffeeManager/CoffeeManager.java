@@ -1,8 +1,8 @@
-package main.CoffeeManager;
+package CoffeeManager;
 
-import main.Beverage.*;
-import main.Topping.*;
-import main.Factory.*;
+import Beverage.*;
+import Topping.*;
+import Factory.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ public class CoffeeManager {
         System.out.println("\nToppings:");
         obj = new Bubble();
         printMenuItem(obj, 1);
-        obj = new Coffee();
+        obj = new Coffee(obj);
         printMenuItem(obj, 2);
         obj = new Milk();
         printMenuItem(obj, 3);

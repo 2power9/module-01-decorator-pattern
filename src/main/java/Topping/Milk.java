@@ -1,6 +1,6 @@
-package main.Topping;
+package Topping;
 
-import main.Beverage.BaseBeverage;
+import Beverage.BaseBeverage;
 
 public class Milk extends Topping {
     private String name = "Milk";

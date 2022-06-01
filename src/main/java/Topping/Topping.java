@@ -1,6 +1,6 @@
-package main.Topping;
+package Topping;
 
-import main.Beverage.BaseBeverage;
+import Beverage.BaseBeverage;
 
 public abstract class Topping extends BaseBeverage {
     public abstract int getPrice();

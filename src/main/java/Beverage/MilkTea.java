@@ -1,4 +1,4 @@
-package main.Beverage;
+package Beverage;
 
 public class MilkTea extends BaseBeverage {
     public MilkTea() {

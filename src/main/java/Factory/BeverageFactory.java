@@ -1,9 +1,8 @@
-package main.Factory;
+package Factory;
 
-import main.Beverage.*;
-import main.Helper.InputHelper;
+import Beverage.*;
+import Helper.InputHelper;
 
-import java.util.Scanner;
 
 public abstract class BeverageFactory {
     protected InputHelper in;
@@ -14,7 +13,7 @@ public abstract class BeverageFactory {
     }
 
     protected boolean processOutOfRangeOption(int op) {
-        if (op > numToppings) {
+        if (op > numToppings || op < 0) {
             System.out.println("Sorry, we don't have this option.");
             return true;
         }
@@ -35,6 +34,9 @@ public abstract class BeverageFactory {
             System.out.println("Amount out of bound!");
 
         }
+    }
+    public void setInputHelper(InputHelper input) {
+        this.in = input;
     }
     public abstract BaseBeverage createBeverage();
 }
