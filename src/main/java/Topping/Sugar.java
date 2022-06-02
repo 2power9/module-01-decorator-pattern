@@ -1,6 +1,6 @@
 package Topping;
 
-import Beverage.BaseBeverage;
+import BeverageManager.Beverage.BaseBeverage;
 
 public class Sugar extends Topping {
     private String name = "Sugar";

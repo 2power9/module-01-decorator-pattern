@@ -1,4 +1,4 @@
-package Beverage;
+package BeverageManager.Beverage;
 
 public class GreenTea extends BaseBeverage {
     public GreenTea() {

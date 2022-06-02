@@ -1,7 +1,7 @@
-package Factory;
+package BeverageManager.Factory;
 
-import Beverage.BaseBeverage;
-import Beverage.MilkTea;
+import BeverageManager.Beverage.BaseBeverage;
+import BeverageManager.Beverage.MilkTea;
 
 import Topping.*;
 

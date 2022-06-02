@@ -10,6 +10,6 @@ public class InputHelper {
         this.in = new Scanner(input);
     }
     public String input() {
-        return in.next();
+        return in.nextLine();
     }
 }

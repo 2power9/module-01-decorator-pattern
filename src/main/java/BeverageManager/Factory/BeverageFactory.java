@@ -1,6 +1,6 @@
-package Factory;
+package BeverageManager.Factory;
 
-import Beverage.*;
+import BeverageManager.Beverage.BaseBeverage;
 import Helper.InputHelper;
 
 

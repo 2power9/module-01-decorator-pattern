@@ -1,9 +1,8 @@
-import CoffeeManager.CoffeeManager;
+import BeverageManager.BeverageManager;
 
 public class Main {
     public static void main(String[] args) {
-        CoffeeManager manager = new CoffeeManager();
-        manager.orderBeverages();
-        manager.printBill();
+        BeverageManager manager = new BeverageManager();
+        manager.order();
     }
 }

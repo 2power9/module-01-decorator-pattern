@@ -1,7 +1,7 @@
-package Factory;
+package BeverageManager.Factory;
 
-import Beverage.BaseBeverage;
-import Beverage.Espresso;
+import BeverageManager.Beverage.BaseBeverage;
+import BeverageManager.Beverage.Espresso;
 
 import Topping.Coffee;
 import Topping.Sugar;
