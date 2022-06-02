@@ -10,7 +10,7 @@ public class Main {
             System.out.println("======================================================");
             System.out.println("======================================================");
             System.out.println("======================================================");
-            System.out.println("New order? (0 - yes | 1 - no): ");
+            System.out.print("New order? (0 - yes | 1 - no): ");
             int op = Integer.parseInt(in.input());
             if (op == 1) break;
         }

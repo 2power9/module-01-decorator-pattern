@@ -9,8 +9,9 @@ public abstract class MessageStrategy {
         this.client = client;
     }
 
-    public void sendMessage() {
-        System.out.println("Client's name: " + client.getName() + "\nClient's telephone: " + client.getTel());
+    public void sendMessage(String status) {
+        System.out.println("Client's name: " + client.getName() + "\nClient's telephone: " + client.getTel() +
+                "\nStatus: " + status);
     }
 
 }

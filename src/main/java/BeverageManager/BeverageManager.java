@@ -121,8 +121,9 @@ public class BeverageManager {
         Client client = getClient();
         message = getMessageMethod(client);
         orderBeverages();
+        message.sendMessage(status.getStatus());
         printBill();
-        message.sendMessage();
+        message.sendMessage(status.getStatus());
     }
 
     public void printBill() {

@@ -8,8 +8,9 @@ public class MessageTelegram extends MessageStrategy {
     }
 
     @Override
-    public void sendMessage() {
+    public void sendMessage(String status) {
+        System.out.println("====Status Message====");
         System.out.print("[Telegram] ");
-        super.sendMessage();
+        super.sendMessage(status);
     }
 }
