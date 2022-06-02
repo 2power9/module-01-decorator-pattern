@@ -2,11 +2,12 @@ package BeverageTest;
 
 import Beverage.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Timeout(3)
 class BaseBeverageTest {
-
     @Test
     void getPrice() {
         BaseBeverage obj;

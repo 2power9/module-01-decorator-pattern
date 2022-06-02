@@ -4,9 +4,11 @@ import Beverage.BaseBeverage;
 import Beverage.MilkTea;
 import Topping.Milk;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Timeout(3)
 class MilkTest {
     @Test
     void getAmount() {

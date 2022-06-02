@@ -14,6 +14,7 @@ import Topping.Sugar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -22,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@Timeout(3)
 class MilkTeaFactoryTest {
     private PrintStream standardOut;
     private ByteArrayOutputStream outputStreamCaptor;

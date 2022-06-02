@@ -2,12 +2,14 @@ package HelperTest;
 
 import Helper.InputHelper;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Timeout(3)
 class InputHelperTest {
 
     @Test
