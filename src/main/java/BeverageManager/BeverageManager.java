@@ -10,7 +10,6 @@ import Helper.Client;
 import Helper.InputHelper;
 import MessageStrategy.*;
 import State.*;
-import Topping.*;
 
 import java.util.ArrayList;
 
@@ -79,7 +78,6 @@ public class BeverageManager {
 
     private void orderBeverages() {
         int op;
-        status = new ProcessState(this);
         while (true) {
             System.out.print("Choose option (0 - quit | 1 - show menu | 2 - order):");
             op = Integer.parseInt(in.input());
@@ -117,19 +115,11 @@ public class BeverageManager {
             }
             break;
         }
-        if (op == 0) return new MessageTelegram(client);
-        else return new MessageZalo(client);
+        MessageStrategy message;
+        if (op == 0) message =  new MessageTelegram(client);
+        else message = new MessageZalo(client);
+        return message;
     }
-
-    public void order() {
-        Client client = getClient();
-        message = getMessageMethod(client);
-        orderBeverages();
-        message.sendMessage(status.getStatus());
-        printBill();
-        message.sendMessage(status.getStatus());
-    }
-
     public void printBill() {
         System.out.println("=================================");
         int ans = 0;
@@ -141,5 +131,19 @@ public class BeverageManager {
         System.out.println("Total: " + ans + " 000");
         System.out.println("=================================");
         status.nextStatus();
+    }
+    public void order() {
+        Client client = getClient();
+        message = getMessageMethod(client);
+        status = new ProcessState(this);
+//        message.sendMessage(status.getStatus());
+
+        orderBeverages();
+        status.nextStatus();
+//        message.sendMessage(status.getStatus());
+
+        printBill();
+        status.nextStatus();
+//        message.sendMessage(status.getStatus());
     }
 }

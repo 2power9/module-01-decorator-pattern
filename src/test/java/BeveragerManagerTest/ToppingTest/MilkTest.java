@@ -1,8 +1,8 @@
 package ToppingTest;
 
-import Beverage.BaseBeverage;
-import Beverage.MilkTea;
-import Topping.Milk;
+import BeverageManager.Beverage.BaseBeverage;
+import BeverageManager.Beverage.MilkTea;
+import BeverageManager.Topping.Milk;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 

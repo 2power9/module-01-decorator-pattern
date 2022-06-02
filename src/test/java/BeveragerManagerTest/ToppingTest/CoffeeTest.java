@@ -1,8 +1,8 @@
 package ToppingTest;
 
-import Beverage.BaseBeverage;
-import Beverage.Espresso;
-import Topping.Coffee;
+import BeverageManager.Beverage.BaseBeverage;
+import BeverageManager.Beverage.Espresso;
+import BeverageManager.Topping.Coffee;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
