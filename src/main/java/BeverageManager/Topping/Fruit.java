@@ -1,17 +1,17 @@
-package Topping;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
 
-public class Sugar extends Topping {
-    private String name = "Sugar";
-    private int price = 0;
+public class Fruit extends Topping {
+    private String name = "Fruit";
+    private int price = 20;
     private BaseBeverage base;
-    private int limit = 4;
+    private int limit = 2;
     private int amount = 1;
-    public Sugar() {
+    public Fruit() {
         base = null;
     }
-    public Sugar(BaseBeverage base) {
+    public Fruit(BaseBeverage base) {
         this.base = base;
     }
     public int getAmount() {
@@ -20,7 +20,6 @@ public class Sugar extends Topping {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
     @Override
     public int getLimit() {
         return limit;

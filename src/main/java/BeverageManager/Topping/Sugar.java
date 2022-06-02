@@ -1,17 +1,17 @@
-package Topping;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
 
-public class Coffee extends Topping {
-    private String name = "Coffee";
-    private int price = 25;
+public class Sugar extends Topping {
+    private String name = "Sugar";
+    private int price = 0;
     private BaseBeverage base;
-    private int limit = 2;
+    private int limit = 4;
     private int amount = 1;
-    public Coffee() {
+    public Sugar() {
         base = null;
     }
-    public Coffee(BaseBeverage base) {
+    public Sugar(BaseBeverage base) {
         this.base = base;
     }
     public int getAmount() {

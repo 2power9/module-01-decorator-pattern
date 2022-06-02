@@ -3,8 +3,8 @@ package BeverageManager.Factory;
 import BeverageManager.Beverage.BaseBeverage;
 import BeverageManager.Beverage.Espresso;
 
-import Topping.Coffee;
-import Topping.Sugar;
+import BeverageManager.Topping.Coffee;
+import BeverageManager.Topping.Sugar;
 
 import java.util.Arrays;
 

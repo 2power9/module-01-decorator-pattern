@@ -2,6 +2,10 @@ package BeverageManager;
 
 import BeverageManager.Beverage.*;
 import BeverageManager.Factory.*;
+import BeverageManager.Topping.Bubble;
+import BeverageManager.Topping.Coffee;
+import BeverageManager.Topping.Fruit;
+import BeverageManager.Topping.Milk;
 import Helper.Client;
 import Helper.InputHelper;
 import MessageStrategy.*;

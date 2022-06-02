@@ -1,11 +1,10 @@
 package FactoryTest;
 
-import Beverage.BaseBeverage;
-import Beverage.GreenTea;
-import Factory.EspressoFactory;
-import Factory.GreenTeaFactory;
+import BeverageManager.Beverage.BaseBeverage;
+import BeverageManager.Beverage.Espresso;
+import BeverageManager.Factory.EspressoFactory;
 import Helper.InputHelper;
-import Topping.Fruit;
+import Topping.Coffee;
 import Topping.Sugar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,12 +14,13 @@ import org.junit.jupiter.api.Timeout;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @Timeout(3)
-class GreenTeaFactoryTest {
+class EspressoFactoryTest {
     private PrintStream standardOut;
     private ByteArrayOutputStream outputStreamCaptor;
 
@@ -34,8 +34,8 @@ class GreenTeaFactoryTest {
     @Test
     void createBeverageTestOption0() {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
-        GreenTea expectBeverage = new GreenTea();
+        EspressoFactory obj = new EspressoFactory();
+        Espresso expectBeverage = new Espresso();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
 
@@ -51,8 +51,8 @@ class GreenTeaFactoryTest {
     void createBeverageTestOption1() {
         // GIVEN
         EspressoFactory obj = new EspressoFactory();
-        BaseBeverage expectBeverage = new GreenTea();
-        expectBeverage = new Fruit(expectBeverage);
+        BaseBeverage expectBeverage = new Espresso();
+        expectBeverage = new Coffee(expectBeverage);
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
 
@@ -70,8 +70,8 @@ class GreenTeaFactoryTest {
     @Test
     void createBeverageTestOption2() {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
-        BaseBeverage expectBeverage = new GreenTea();
+        EspressoFactory obj = new EspressoFactory();
+        BaseBeverage expectBeverage = new Espresso();
         expectBeverage = new Sugar(expectBeverage);
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
@@ -90,14 +90,14 @@ class GreenTeaFactoryTest {
     @Test
     void createBeverageTestAmountOutOfBounds() {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
+        EspressoFactory obj = new EspressoFactory();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
         String expectText = "Amount out of bound!";
-        Fruit topping = new Fruit();
+        Sugar topping = new Sugar();
 
         // WHEN
-        when(in.input()).thenReturn("1") // get topping 1
+        when(in.input()).thenReturn("2") // get topping 2
                 .thenReturn(Integer.toString(topping.getLimit() + 1)) // get amount out of bound
                 .thenReturn("1") // get valid amount
                 .thenReturn("0"); // finish adding topping
@@ -112,15 +112,15 @@ class GreenTeaFactoryTest {
     @Test
     void createBeverageTestRepeatOption() {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
+        EspressoFactory obj = new EspressoFactory();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
         String expectText = "You've picked this topping.";
 
         // WHEN
-        when(in.input()).thenReturn("1") // get topping 2
+        when(in.input()).thenReturn("2") // get topping 2
                 .thenReturn("1") // get valid amount
-                .thenReturn("1") // get repeat option
+                .thenReturn("2") // get repeat option
                 .thenReturn("0"); // finish adding topping
 
         obj.createBeverage();
@@ -133,13 +133,13 @@ class GreenTeaFactoryTest {
     @Test
     void createBeverageTestOptionOutOfRange() {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
+        EspressoFactory obj = new EspressoFactory();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
         String expectText = "Sorry, we don't have this option.";
 
         // WHEN
-        when(in.input()).thenReturn("-1") // get out of range option
+        when(in.input()).thenReturn("3") // get out of range option
                 .thenReturn("0"); // finish adding topping
 
         obj.createBeverage();
@@ -153,5 +153,4 @@ class GreenTeaFactoryTest {
     public void tearDown() {
         System.setOut(standardOut);
     }
-
 }

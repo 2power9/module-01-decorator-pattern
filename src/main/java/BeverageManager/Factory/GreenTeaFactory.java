@@ -3,8 +3,8 @@ package BeverageManager.Factory;
 import BeverageManager.Beverage.BaseBeverage;
 import BeverageManager.Beverage.GreenTea;
 
-import Topping.Sugar;
-import Topping.Fruit;
+import BeverageManager.Topping.Sugar;
+import BeverageManager.Topping.Fruit;
 
 import java.util.Arrays;
 

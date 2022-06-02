@@ -1,4 +1,4 @@
-package Topping;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
 

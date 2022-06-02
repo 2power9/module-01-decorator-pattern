@@ -1,6 +1,10 @@
 package BeverageTest;
 
 import Beverage.*;
+import BeverageManager.Beverage.BaseBeverage;
+import BeverageManager.Beverage.Espresso;
+import BeverageManager.Beverage.GreenTea;
+import BeverageManager.Beverage.MilkTea;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
