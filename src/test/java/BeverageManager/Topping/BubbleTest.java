@@ -1,19 +1,17 @@
-package ToppingTest;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
 import BeverageManager.Beverage.MilkTea;
-import BeverageManager.Topping.Milk;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Timeout(3)
-class MilkTest {
+class BubbleTest {
     @Test
     void getAmount() {
         // GIVEN
-        Milk obj = new Milk();
+        Bubble obj = new Bubble();
         // WHEN & THEN
         assertTrue(obj.getAmount() > 0 && obj.getAmount() <= obj.getLimit());
     }
@@ -21,37 +19,37 @@ class MilkTest {
     @Test
     void setAmount() {
         // GIVEN
-        Milk obj = new Milk();
+        Bubble obj = new Bubble();
         // WHEN
-        obj.setAmount(2);
+        obj.setAmount(3);
         // THEN
-        assertEquals(2, obj.getAmount());
+        assertEquals(3, obj.getAmount());
     }
 
     @Test
     void getLimit() {
         // GIVEN
-        Milk obj = new Milk();
+        Bubble obj = new Bubble();
         // WHEN & THEN
-        assertEquals(5, obj.getLimit());
+        assertEquals(4, obj.getLimit());
     }
 
     @Test
     void getPriceBaseNull() {
         // GIVEN
-        Milk obj = new Milk();
+        Bubble obj = new Bubble();
         // WHEN & THEN
-        assertEquals(10, obj.getPrice());
+        assertEquals(15, obj.getPrice());
     }
 
     @Test
     void getPriceBaseNotNull() {
         // GIVEN
-        Milk obj = new Milk();
+        Bubble obj = new Bubble();
         BaseBeverage base = new MilkTea();
         int expect = base.getPrice() + obj.getPrice();
         // WHEN
-        base = new Milk(base);
+        base = new Bubble(base);
         // THEN
         assertEquals(expect, base.getPrice());
     }
@@ -59,7 +57,7 @@ class MilkTest {
     @Test
     void testToString() {
         // GIVEN
-        Milk obj = new Milk();
+        Bubble obj = new Bubble();
         // WHEN & THEN
         assertNotNull(obj.toString());
     }

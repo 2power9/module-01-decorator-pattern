@@ -26,6 +26,11 @@ public class BeverageManager {
     public BeverageManager() {
         in = new InputHelper(System.in);
         list = new ArrayList<>();
+        status = new ProcessState(this);
+    }
+
+    public void setInputHelper(InputHelper in) {
+        this.in = in;
     }
 
     public void nextStatus(State status) {
@@ -76,6 +81,9 @@ public class BeverageManager {
         return controller.createBeverage();
     }
 
+    public void addBeverage(BaseBeverage beverage) {
+        this.list.add(beverage);
+    }
     private void orderBeverages() {
         int op;
         while (true) {
@@ -132,18 +140,21 @@ public class BeverageManager {
         System.out.println("=================================");
         status.nextStatus();
     }
+
+    public String getStatus() {
+        return status.getStatus();
+    }
     public void order() {
         Client client = getClient();
         message = getMessageMethod(client);
-        status = new ProcessState(this);
-//        message.sendMessage(status.getStatus());
+//        message.sendMessage(getStatus());
 
         orderBeverages();
         status.nextStatus();
-//        message.sendMessage(status.getStatus());
+//        message.sendMessage(getStatus());
 
         printBill();
         status.nextStatus();
-//        message.sendMessage(status.getStatus());
+//        message.sendMessage(getStatus());
     }
 }

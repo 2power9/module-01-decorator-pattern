@@ -1,14 +1,12 @@
-package ToppingTest;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
 import BeverageManager.Beverage.Espresso;
-import BeverageManager.Topping.Coffee;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Timeout(3)
 class CoffeeTest {
     @Test
     void getAmount() {

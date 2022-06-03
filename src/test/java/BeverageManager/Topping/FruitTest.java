@@ -1,19 +1,17 @@
-package ToppingTest;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
 import BeverageManager.Beverage.GreenTea;
-import BeverageManager.Topping.Sugar;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Timeout(3)
-class SugarTest {
+class FruitTest {
     @Test
     void getAmount() {
         // GIVEN
-        Sugar obj = new Sugar();
+        Fruit obj = new Fruit();
         // WHEN & THEN
         assertTrue(obj.getAmount() > 0 && obj.getAmount() <= obj.getLimit());
     }
@@ -21,7 +19,7 @@ class SugarTest {
     @Test
     void setAmount() {
         // GIVEN
-        Sugar obj = new Sugar();
+        Fruit obj = new Fruit();
         // WHEN
         obj.setAmount(2);
         // THEN
@@ -31,27 +29,27 @@ class SugarTest {
     @Test
     void getLimit() {
         // GIVEN
-        Sugar obj = new Sugar();
+        Fruit obj = new Fruit();
         // WHEN & THEN
-        assertEquals(4, obj.getLimit());
+        assertEquals(2, obj.getLimit());
     }
 
     @Test
     void getPriceBaseNull() {
         // GIVEN
-        Sugar obj = new Sugar();
+        Fruit obj = new Fruit();
         // WHEN & THEN
-        assertEquals(0, obj.getPrice());
+        assertEquals(20, obj.getPrice());
     }
 
     @Test
     void getPriceBaseNotNull() {
         // GIVEN
-        Sugar obj = new Sugar();
+        Fruit obj = new Fruit();
         BaseBeverage base = new GreenTea();
         int expect = base.getPrice() + obj.getPrice();
         // WHEN
-        base = new Sugar(base);
+        base = new Fruit(base);
         // THEN
         assertEquals(expect, base.getPrice());
     }
@@ -59,7 +57,7 @@ class SugarTest {
     @Test
     void testToString() {
         // GIVEN
-        Sugar obj = new Sugar();
+        Fruit obj = new Fruit();
         // WHEN & THEN
         assertNotNull(obj.toString());
     }

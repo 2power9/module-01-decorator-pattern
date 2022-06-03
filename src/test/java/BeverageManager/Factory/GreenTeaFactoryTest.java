@@ -1,12 +1,10 @@
-package FactoryTest;
+package BeverageManager.Factory;
 
 import BeverageManager.Beverage.BaseBeverage;
 import BeverageManager.Beverage.GreenTea;
-import BeverageManager.Factory.EspressoFactory;
-import BeverageManager.Factory.GreenTeaFactory;
 import Helper.InputHelper;
-import Topping.Fruit;
-import Topping.Sugar;
+import BeverageManager.Topping.Fruit;
+import BeverageManager.Topping.Sugar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +12,7 @@ import org.junit.jupiter.api.Timeout;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -32,7 +31,7 @@ class GreenTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOption0() {
+    void createBeverageTestOption0() throws InterruptedException {
         // GIVEN
         GreenTeaFactory obj = new GreenTeaFactory();
         GreenTea expectBeverage = new GreenTea();
@@ -40,6 +39,7 @@ class GreenTeaFactoryTest {
         obj.setInputHelper(in);
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("0");
 
         // THEN
@@ -48,7 +48,7 @@ class GreenTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOption1() {
+    void createBeverageTestOption1() throws InterruptedException {
         // GIVEN
         EspressoFactory obj = new EspressoFactory();
         BaseBeverage expectBeverage = new GreenTea();
@@ -57,6 +57,7 @@ class GreenTeaFactoryTest {
         obj.setInputHelper(in);
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("1") // get topping 1
                 .thenReturn("1") // get amount = 1
                 .thenReturn("0"); // finish adding topping
@@ -68,7 +69,7 @@ class GreenTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOption2() {
+    void createBeverageTestOption2() throws InterruptedException {
         // GIVEN
         GreenTeaFactory obj = new GreenTeaFactory();
         BaseBeverage expectBeverage = new GreenTea();
@@ -77,6 +78,7 @@ class GreenTeaFactoryTest {
         obj.setInputHelper(in);
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("2") // get topping 2
                 .thenReturn("1") // get amount = 1
                 .thenReturn("0"); // finish adding topping
@@ -88,7 +90,7 @@ class GreenTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestAmountOutOfBounds() {
+    void createBeverageTestAmountOutOfBounds() throws InterruptedException {
         // GIVEN
         GreenTeaFactory obj = new GreenTeaFactory();
         InputHelper in = mock(InputHelper.class);
@@ -97,6 +99,7 @@ class GreenTeaFactoryTest {
         Fruit topping = new Fruit();
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("1") // get topping 1
                 .thenReturn(Integer.toString(topping.getLimit() + 1)) // get amount out of bound
                 .thenReturn("1") // get valid amount
@@ -110,7 +113,7 @@ class GreenTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestRepeatOption() {
+    void createBeverageTestRepeatOption() throws InterruptedException {
         // GIVEN
         GreenTeaFactory obj = new GreenTeaFactory();
         InputHelper in = mock(InputHelper.class);
@@ -118,6 +121,7 @@ class GreenTeaFactoryTest {
         String expectText = "You've picked this topping.";
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("1") // get topping 2
                 .thenReturn("1") // get valid amount
                 .thenReturn("1") // get repeat option
@@ -131,7 +135,7 @@ class GreenTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOptionOutOfRange() {
+    void createBeverageTestOptionOutOfRange() throws InterruptedException {
         // GIVEN
         GreenTeaFactory obj = new GreenTeaFactory();
         InputHelper in = mock(InputHelper.class);
@@ -139,6 +143,7 @@ class GreenTeaFactoryTest {
         String expectText = "Sorry, we don't have this option.";
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("-1") // get out of range option
                 .thenReturn("0"); // finish adding topping
 

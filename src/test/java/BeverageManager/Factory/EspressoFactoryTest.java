@@ -1,14 +1,10 @@
-package FactoryTest;
+package BeverageManager.Factory;
 
 import BeverageManager.Beverage.BaseBeverage;
-import BeverageManager.Beverage.MilkTea;
-import BeverageManager.Factory.GreenTeaFactory;
-import BeverageManager.Factory.MilkTeaFactory;
+import BeverageManager.Beverage.Espresso;
 import Helper.InputHelper;
-import Topping.Bubble;
-import Topping.Fruit;
-import Topping.Milk;
-import Topping.Sugar;
+import BeverageManager.Topping.Coffee;
+import BeverageManager.Topping.Sugar;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,13 +12,15 @@ import org.junit.jupiter.api.Timeout;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @Timeout(3)
-class MilkTeaFactoryTest {
+class EspressoFactoryTest {
     private PrintStream standardOut;
     private ByteArrayOutputStream outputStreamCaptor;
 
@@ -34,14 +32,15 @@ class MilkTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOption0() {
+    void createBeverageTestOption0() throws InterruptedException {
         // GIVEN
-        MilkTeaFactory obj = new MilkTeaFactory();
-        MilkTea expectBeverage = new MilkTea();
+        EspressoFactory obj = new EspressoFactory();
+        Espresso expectBeverage = new Espresso();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("0");
 
         // THEN
@@ -50,35 +49,37 @@ class MilkTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOption1() {
+    void createBeverageTestOption1() throws InterruptedException {
         // GIVEN
-        MilkTeaFactory obj = new MilkTeaFactory();
-        BaseBeverage expectBeverage = new MilkTea();
-        expectBeverage = new Bubble(expectBeverage);
+        EspressoFactory obj = new EspressoFactory();
+        BaseBeverage expectBeverage = new Espresso();
+        expectBeverage = new Coffee(expectBeverage);
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("1") // get topping 1
-                .thenReturn("3") // get amount = 1
+                .thenReturn("1") // get amount = 1
                 .thenReturn("0"); // finish adding topping
 
-        BaseBeverage outputBeverage = obj.createBeverage();
+        BaseBeverage ouputBeverage = obj.createBeverage();
 
         // THEN
-        assertEquals(expectBeverage.getPrice(), outputBeverage.getPrice());
+        assertEquals(expectBeverage.getPrice(), ouputBeverage.getPrice());
     }
 
     @Test
-    void createBeverageTestOption2() {
+    void createBeverageTestOption2() throws InterruptedException {
         // GIVEN
-        MilkTeaFactory obj = new MilkTeaFactory();
-        BaseBeverage expectBeverage = new MilkTea();
-        expectBeverage = new Milk(expectBeverage);
+        EspressoFactory obj = new EspressoFactory();
+        BaseBeverage expectBeverage = new Espresso();
+        expectBeverage = new Sugar(expectBeverage);
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
 
         // WHEN
+        TimeUnit.SECONDS.sleep(1);
         when(in.input()).thenReturn("2") // get topping 2
                 .thenReturn("1") // get amount = 1
                 .thenReturn("0"); // finish adding topping
@@ -88,56 +89,19 @@ class MilkTeaFactoryTest {
         // THEN
         assertEquals(expectBeverage.getPrice(), ouputBeverage.getPrice());
     }
-    @Test
-    void createBeverageTestOption3() {
-        // GIVEN
-        MilkTeaFactory obj = new MilkTeaFactory();
-        BaseBeverage expectBeverage = new MilkTea();
-        expectBeverage = new Fruit(expectBeverage);
-        InputHelper in = mock(InputHelper.class);
-        obj.setInputHelper(in);
-
-        // WHEN
-        when(in.input()).thenReturn("3") // get topping 3
-                .thenReturn("1") // get amount = 1
-                .thenReturn("0"); // finish adding topping
-
-        BaseBeverage ouputBeverage = obj.createBeverage();
-
-        // THEN
-        assertEquals(expectBeverage.getPrice(), ouputBeverage.getPrice());
-    }
-    @Test
-    void createBeverageTestOption4() {
-        // GIVEN
-        MilkTeaFactory obj = new MilkTeaFactory();
-        BaseBeverage expectBeverage = new MilkTea();
-        expectBeverage = new Sugar(expectBeverage);
-        InputHelper in = mock(InputHelper.class);
-        obj.setInputHelper(in);
-
-        // WHEN
-        when(in.input()).thenReturn("4") // get topping 4
-                .thenReturn("1") // get amount = 1
-                .thenReturn("0"); // finish adding topping
-
-        BaseBeverage ouputBeverage = obj.createBeverage();
-
-        // THEN
-        assertEquals(expectBeverage.getPrice(), ouputBeverage.getPrice());
-    }
 
     @Test
-    void createBeverageTestAmountOutOfBounds() {
+    void createBeverageTestAmountOutOfBounds() throws InterruptedException {
         // GIVEN
-        MilkTeaFactory obj = new MilkTeaFactory();
+        EspressoFactory obj = new EspressoFactory();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
         String expectText = "Amount out of bound!";
-        Bubble topping = new Bubble();
+        Sugar topping = new Sugar();
 
         // WHEN
-        when(in.input()).thenReturn("1") // get topping 1
+        TimeUnit.SECONDS.sleep(1);
+        when(in.input()).thenReturn("2") // get topping 2
                 .thenReturn(Integer.toString(topping.getLimit() + 1)) // get amount out of bound
                 .thenReturn("1") // get valid amount
                 .thenReturn("0"); // finish adding topping
@@ -150,17 +114,18 @@ class MilkTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestRepeatOption() {
+    void createBeverageTestRepeatOption() throws InterruptedException {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
+        EspressoFactory obj = new EspressoFactory();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
         String expectText = "You've picked this topping.";
 
         // WHEN
-        when(in.input()).thenReturn("1") // get topping 2
+        TimeUnit.SECONDS.sleep(1);
+        when(in.input()).thenReturn("2") // get topping 2
                 .thenReturn("1") // get valid amount
-                .thenReturn("1") // get repeat option
+                .thenReturn("2") // get repeat option
                 .thenReturn("0"); // finish adding topping
 
         obj.createBeverage();
@@ -171,15 +136,16 @@ class MilkTeaFactoryTest {
     }
 
     @Test
-    void createBeverageTestOptionOutOfRange() {
+    void createBeverageTestOptionOutOfRange() throws InterruptedException {
         // GIVEN
-        GreenTeaFactory obj = new GreenTeaFactory();
+        EspressoFactory obj = new EspressoFactory();
         InputHelper in = mock(InputHelper.class);
         obj.setInputHelper(in);
         String expectText = "Sorry, we don't have this option.";
 
         // WHEN
-        when(in.input()).thenReturn("-1") // get out of range option
+        TimeUnit.SECONDS.sleep(1);
+        when(in.input()).thenReturn("3") // get out of range option
                 .thenReturn("0"); // finish adding topping
 
         obj.createBeverage();

@@ -1,19 +1,17 @@
-package ToppingTest;
+package BeverageManager.Topping;
 
 import BeverageManager.Beverage.BaseBeverage;
-import BeverageManager.Beverage.MilkTea;
-import BeverageManager.Topping.Bubble;
+import BeverageManager.Beverage.GreenTea;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Timeout(3)
-class BubbleTest {
+class SugarTest {
     @Test
     void getAmount() {
         // GIVEN
-        Bubble obj = new Bubble();
+        Sugar obj = new Sugar();
         // WHEN & THEN
         assertTrue(obj.getAmount() > 0 && obj.getAmount() <= obj.getLimit());
     }
@@ -21,17 +19,17 @@ class BubbleTest {
     @Test
     void setAmount() {
         // GIVEN
-        Bubble obj = new Bubble();
+        Sugar obj = new Sugar();
         // WHEN
-        obj.setAmount(3);
+        obj.setAmount(2);
         // THEN
-        assertEquals(3, obj.getAmount());
+        assertEquals(2, obj.getAmount());
     }
 
     @Test
     void getLimit() {
         // GIVEN
-        Bubble obj = new Bubble();
+        Sugar obj = new Sugar();
         // WHEN & THEN
         assertEquals(4, obj.getLimit());
     }
@@ -39,19 +37,19 @@ class BubbleTest {
     @Test
     void getPriceBaseNull() {
         // GIVEN
-        Bubble obj = new Bubble();
+        Sugar obj = new Sugar();
         // WHEN & THEN
-        assertEquals(15, obj.getPrice());
+        assertEquals(0, obj.getPrice());
     }
 
     @Test
     void getPriceBaseNotNull() {
         // GIVEN
-        Bubble obj = new Bubble();
-        BaseBeverage base = new MilkTea();
+        Sugar obj = new Sugar();
+        BaseBeverage base = new GreenTea();
         int expect = base.getPrice() + obj.getPrice();
         // WHEN
-        base = new Bubble(base);
+        base = new Sugar(base);
         // THEN
         assertEquals(expect, base.getPrice());
     }
@@ -59,7 +57,7 @@ class BubbleTest {
     @Test
     void testToString() {
         // GIVEN
-        Bubble obj = new Bubble();
+        Sugar obj = new Sugar();
         // WHEN & THEN
         assertNotNull(obj.toString());
     }
